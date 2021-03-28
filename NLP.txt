@@ -1,0 +1,97 @@
+The Problem with Text:
+
+	A problem with modeling text is that it is messy, 
+	and techniques like machine learning algorithms 
+	prefer well defined fixed-length inputs and outputs.
+
+	Machine learning algorithms cannot work with raw text directly; 
+	the text must be converted into numbers. Specifically, vectors of numbers.
+
+	In language processing, 
+	the vectors x are derived from textual data, 
+	in order to reflect various linguistic properties of the text.
+
+	This is called feature extraction or feature encoding.
+
+	A popular and simple method of feature extraction
+	with text data is called the bag-of-words model of text.
+
+	A bag-of-words is a representation of text that describes the occurrence of words within a document. 
+
+	It involves two things:
+
+		A vocabulary of known words.
+		A measure of the presence of known words.
+
+	It is called a “bag” of words, because any information about 
+	the order or structure of words in the document is discarded. 
+	The model is only concerned with whether known words occur in 
+	the document, not where in the document.
+
+BOW with preprocessing:
+	remove delimiters, lowercase everything, remove stopwords
+
+CountVectorizer:
+	Straightup Counting
+
+TF-IDF:
+	This approach is called term frequency-inverse document frequency 
+	or shortly known as Tf-Idf approach of scoring.TF-IDF is intended 
+	to reflect how relevant a term is in a given document.
+
+		TF(i,j) = n(i,j)/Σ n(i,j)
+		n(i,j ) = number of times nth word  occurred in a document
+		Σn(i,j) = total number of words in a document.  
+
+		This metric can be calculated by taking the total number of documents, 
+		dividing it by the number of documents that contain a word, and calculating the logarithm.
+
+		IDF = 1+log(N/dN)
+
+		N = Total number of documents in the dataset
+		dN = total number of documents in which nth word occur 
+
+		So, if the word is very common and appears in many documents, 
+		this number will approach 0. Otherwise, it will approach 1.
+		Multiplying these two numbers results in the TF-IDF score of a word in a document.
+		The higher the score, the more relevant that word is in that particular document.
+
+		Also, note that the 1 added in the above formula is so that terms with 
+		zero IDF don’t get suppressed entirely. This process is known as IDF smoothing.
+
+		TF-IDF = TF*IDF
+	
+	Hash Vectorizer:
+
+
+Natural Language Processing: Performing tasks such as 
+	
+Tokenization:
+	Split punctuation marks from words 
+
+Stop Words Removal:
+	Removing function words 
+
+Stemming:
+
+Lemmatization:
+	ate ---> eat to origin
+	
+POS tagging:
+	Associating each word in a sentence with a proper POS (part of speech) is known 
+	as POS tagging or POS annotation. POS tags are also known as word classes, 
+	morphological classes, or lexical tags.
+
+Chunking:
+
+Sentiment analysis
+	1. Polarity: 
+		positivity or negativity or neutral, 
+		sentiment score between 1 and -1
+
+	2. Subjectivity: subjective or objective
+		subjectivity between 0 and 1
+
+n-grams:
+	2-gram: 'He goes to hospital': 'He goes', 'goes to', 'to hospital')
+	bag-of-ngrams

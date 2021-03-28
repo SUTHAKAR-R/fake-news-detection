@@ -1,0 +1,7 @@
+The gridsearch technique will construct many versions of
+the model with all possible combinations of hyerparameters, 
+and will return the best one.
+
+It searches for best set of hyperparameters 
+a grid of hyperparameters values.
+
